@@ -18,13 +18,21 @@ class Photo extends Component {
     const { visible, uri } = this.state;
     console.log(uri);
     return (
-      <View style={{ flex: 1, width: "100%" }}>
-        <View style={{ marginTop: 50 }}>
+      <View
+        style={{
+          flex: 1,
+          width: "100%",
+          // justifyContent: "center"
+          alignItems: "center"
+        }}
+      >
+        <View
+          style={{ marginTop: 50, borderWidth: 1, width: 160, borderRadius: 8 }}
+        >
           <Button
             onPress={this.localOnChangeVisible}
-            title="Learn More"
+            title="OpenPhotoEditer"
             color="#841584"
-            accessibilityLabel="Learn more about this purple button"
           />
         </View>
         <Modal visible={visible} onRequestClose={() => {}}>
