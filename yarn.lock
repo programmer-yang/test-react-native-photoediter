@@ -4875,11 +4875,6 @@ react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-native-image-base64@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/react-native-image-base64/-/react-native-image-base64-0.1.3.tgz#bfc9eaf7cd3ec705aa25f00f6a11d0c379217fe8"
-  integrity sha512-0n1gLLvA9VJZ1w0zyaDYZQH/Re2VOQFW5kt0P/qYhqs4f1MvWsaTs+7CxXIQR3L2wgEsfDJ1sIKyrAZ0RoR2Hg==
-
 react-native@0.59.9:
   version "0.59.9"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.59.9.tgz#c94ee4fa35121720c05235a2dd6cdd2784bf5177"
@@ -5229,10 +5224,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-lm-photoediter@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.6.tgz#cf18d607dd3218c87937e14a4b52f5875b96c927"
-  integrity sha512-aZxA/wgUobEH0CfCuOOxh5+UCjFZrKcdi5VhsBsnJBlyWFcSJCPSHQN8+o+frgevDFqgVIxiF/LNfP8STEYocQ==
+rn-lm-photoediter@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.8.tgz#409daea650103983aeb2ac11fa9ffd06e2c5e7d9"
+  integrity sha512-IzCCkKHSlKLseHv18nWsa+OOfBN251wKQ3kzF+6WglLVhsSw74035jzh9wJlYZW/77aLxHXSt+vGvOQETM221Q==
 
 rsvp@^3.3.3:
   version "3.6.2"

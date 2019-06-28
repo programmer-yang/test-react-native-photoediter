@@ -3,6 +3,7 @@ package com.testmessageuinew;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.iwhalecloud.picedit.RNPicEditPackage;
 import fr.snapp.imagebase64.RNImgToBase64Package;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -24,6 +25,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNPicEditPackage(),
             new RNImgToBase64Package()
       );
     }
