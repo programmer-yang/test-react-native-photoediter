@@ -5224,10 +5224,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-lm-photoediter@0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.10.tgz#19b2d97ac64597eb0ce4d3932460d178e258970a"
-  integrity sha512-bTGCFxgX06R09o1y516y2cHsXJFlOYYfmJ66AruNeRoa5jxJ/yPEEiwulChcBzcHyxP/7z1Rr5zY4Io5IVjLIg==
+rn-lm-photoediter@0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.12.tgz#0502b36bf754dc134ba5fce8ac70dbe1253f6e67"
+  integrity sha512-bMD30Re8GZkKGc8Vp8hpwI8zIgxuedUI+4RdAMsh/zYDnEuuhhKgV+Kd3GmS6LX3tb1GzgIDzn0+uTDpn0U9wQ==
 
 rsvp@^3.3.3:
   version "3.6.2"
