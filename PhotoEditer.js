@@ -43,6 +43,8 @@ class Photo extends Component {
               marks={[
                 PhotoEditer.toUrl("images/mark1.png"),
                 PhotoEditer.toUrl("images/mark2.png"),
+                PhotoEditer.toUrl("images/mark2.png"),
+                PhotoEditer.toUrl("images/mark3.png"),
                 PhotoEditer.toUrl("images/mark3.png")
               ]}
               onComplete={msg => {
@@ -66,23 +68,14 @@ class Photo extends Component {
         <View style={{ width: "100%", height: 300 }}>
           {uri ? (
             <Image
+              key={uriHash}
               style={{ width: "100%", height: 300, resizeMode: "contain" }}
               source={{
-                uri: `file://${uri}/resultImage`
-                // uri:
-                // "file:///Users/yang/Library/Developer/CoreSimulator/Devices/1B1299FF-2DCB-44EE-B162-F47A33AFED22/data/Containers/Data/Application/4BAA3CE8-EA56-47CA-B4F2-46CB487C84D2/Documents/images/34D57793-EF36-4D74-A503-F74ADA409872.jpg"
+                uri: `file://${uri}?t=${Data.now()}`
               }}
             />
           ) : null}
         </View>
-        <Image
-          style={{ width: "100%", height: 300, resizeMode: "contain" }}
-          source={{
-            // uri: `file://${uri}`
-            uri:
-              "file:///Users/yang/Library/Developer/CoreSimulator/Devices/1B1299FF-2DCB-44EE-B162-F47A33AFED22/data/Containers/Data/Application/EEAF965E-B544-4276-BC42-11FA056EE91C/Documents/resultImage"
-          }}
-        />
       </View>
     );
   }
