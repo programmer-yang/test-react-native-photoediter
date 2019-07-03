@@ -5224,10 +5224,15 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-lm-photoediter@0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.13.tgz#c7bfb77cf18f26d1f23ffb42dbe6c69be9e9d36d"
-  integrity sha512-sBCKH4ZZHzbSLYLy07Ftyp6I0rdYEjKK0s93X+ae2Rxg+f0MvnSpIcYqyQE9yN1L0pzxTMh+ZW4zCJ9Tmqsi3g==
+rn-lm-chat@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/rn-lm-chat/-/rn-lm-chat-0.0.15.tgz#64a2d98e7f6f9d84e2907c79b5bed3a88e0fbc93"
+  integrity sha512-+NfX+1ts/YuBvvpdTldzHwvJZF5bJgIQZ7jsOfga2L5kEaPJKvl3C4kwdFVjDVhxf+FipuDiLAaAZyBQbiy3wQ==
+
+rn-lm-photoediter@0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.14.tgz#94da9cc263e45d62b4979f83817673b33b86530b"
+  integrity sha512-ob9ClEepoF70K3HgMHT0p8jglZ1RuDjALCvbbl56c311pQ2bp8IoJxYvjLWIYdoHC6w+Im4NBCnrSNpCUxGU+g==
 
 rsvp@^3.3.3:
   version "3.6.2"

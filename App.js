@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions } from "react-native";
+import { Dimensions, View, TouchableOpacity } from "react-native";
 import { AuroraIMUI } from "aurora-imui";
 
 const { width: screenWidth, height } = Dimensions.get("window");
@@ -38,6 +38,8 @@ class App extends Component {
           { msgId: "1", msgType: "text", text: "Text message 2" }
         ]}
         onSendText={this.localOnSendText}
+        // onInputTextChanged={t => console.log(t)}
+        // stateContainerStyles={{ justifyContent: "center" }}
       />
     );
   }
