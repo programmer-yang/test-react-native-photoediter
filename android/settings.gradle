@@ -1,7 +1,3 @@
 rootProject.name = 'TestMessageUINew'
-include ':rn-lm-chat'
-project(':rn-lm-chat').projectDir = new File(rootProject.projectDir, '../node_modules/rn-lm-chat/android')
-include ':rn-lm-photoediter'
-project(':rn-lm-photoediter').projectDir = new File(rootProject.projectDir, '../node_modules/rn-lm-photoediter/android')
 
 include ':app'

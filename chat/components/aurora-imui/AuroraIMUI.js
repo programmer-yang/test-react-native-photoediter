@@ -27,6 +27,7 @@ export default class AuroraIMUI extends Component {
     this.removeMessage = this.removeMessage.bind(this);
 
     this.sendText = this.sendText.bind(this);
+    this.changeInputText = this.changeInputText.bind(this); // 自定义方法 用于主动修改textinput内容
 
     this.renderRight = this.renderRight.bind(this);
     this.renderLeft = this.renderLeft.bind(this);
@@ -168,6 +169,21 @@ export default class AuroraIMUI extends Component {
 
     this.inputView.setState({
       text: ""
+    });
+  }
+  changeInputText(src) {
+    // TODO: sendText
+    if (!this.inputView) {
+      return;
+    }
+
+    const text = this.inputView.state.text;
+    // this.props.onSendText &&
+    //   this.props.onSendText.constructor === Function &&
+    //   this.props.onSendText(text);
+
+    this.inputView.setState({
+      text: `${text}${src}`
     });
   }
 

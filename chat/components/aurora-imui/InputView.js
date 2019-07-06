@@ -60,6 +60,10 @@ export default class InputView extends Component {
       });
     }
 
+    this.props.onInputFocus &&
+      this.props.onInputFocus.constructor === Function &&
+      this.props.onInputFocus();
+
     this.props.onFocus &&
       this.props.onFocus.constructor === Function &&
       this.props.onFocus();
@@ -129,7 +133,7 @@ export default class InputView extends Component {
           onFocus={this._onFocus}
           onChangeText={this._onChangeText}
           value={this.state.text}
-          autoFocus={true}
+          // autoFocus={true}
           {...this.props.textInputProps}
         />
       </View>
@@ -184,7 +188,6 @@ export default class InputView extends Component {
             layout: { height }
           }
         }) => {
-          console.log("input view on layout");
           if ("absolute" === this.state.position) {
             this.state.position = "relative";
             this.setState({
