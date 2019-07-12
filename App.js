@@ -22,9 +22,10 @@ class App extends Component {
     super(props);
 
     console.log(ClientModule);
-    // ClientModule.getHistory(1, 20, msgs => {
+    // WebIm.getHistory(null, msgs => {
     //   console.log(msgs);
     // });
+
     // 初始化
     // ClientModule.initializeSDKWithOptions("", "", "", msg => {});
     // 初始化登陆
@@ -32,6 +33,10 @@ class App extends Component {
     // 初始化登陆
     ClientModule.initChatRN("yang", "kefuchannelimid_300108", msg => {
       console.log(msg);
+
+      ClientModule.getHistory("38c762b8ee6948cab80e0c2663b9f40c", msg => {
+        console.log(msg);
+      });
     });
   }
 

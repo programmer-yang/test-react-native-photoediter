@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -35,6 +36,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* TestMessageUINewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TestMessageUINewTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		4FBE2F102A894F2D922FF837 /* libRNChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 025E09E3D4294CAFBCCB88A4 /* libRNChat.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8FDD1598376946AB98A9ABD9 /* libRNPhotoEditer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A39BB3EC472D4735BDE6DE36 /* libRNPhotoEditer.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -219,6 +221,13 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
+		2FAAB7EB22D88CF100B57379 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B68A2F0116B4C9A88BF25BF /* RNChat.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNChat;
+		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
@@ -343,6 +352,7 @@
 		00E356EE1AD99517003FC87E /* TestMessageUINewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestMessageUINewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TestMessageUINewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMessageUINewTests.m; sourceTree = "<group>"; };
+		025E09E3D4294CAFBCCB88A4 /* libRNChat.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNChat.a; sourceTree = "<group>"; };
 		04AFC8FAC1044131B875CAD7 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -361,6 +371,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8A34C81F59E744FD992EDF41 /* RNPhotoEditer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNPhotoEditer.xcodeproj; path = "../node_modules/rn-lm-photoediter/ios/RNPhotoEditer.xcodeproj"; sourceTree = "<group>"; };
+		8B68A2F0116B4C9A88BF25BF /* RNChat.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNChat.xcodeproj; path = "../node_modules/rn-lm-chat/ios/RNChat.xcodeproj"; sourceTree = "<group>"; };
 		A39BB3EC472D4735BDE6DE36 /* libRNPhotoEditer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNPhotoEditer.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AEB4BABE74F34F5AAB75835F /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
@@ -396,6 +407,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				8FDD1598376946AB98A9ABD9 /* libRNPhotoEditer.a in Frameworks */,
 				B6B3ABE5239445588499695A /* libRNImagePicker.a in Frameworks */,
+				4FBE2F102A894F2D922FF837 /* libRNChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,10 +584,18 @@
 			isa = PBXGroup;
 			children = (
 				A39BB3EC472D4735BDE6DE36 /* libRNPhotoEditer.a */,
-				9E28C88A46A2450E9D1EFA68 /* libRNChat.a */,
 				AEB4BABE74F34F5AAB75835F /* libRNImagePicker.a */,
+				025E09E3D4294CAFBCCB88A4 /* libRNChat.a */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		2FAAB7C322D88CF100B57379 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FAAB7EC22D88CF100B57379 /* libRNChat.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -613,6 +633,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				8A34C81F59E744FD992EDF41 /* RNPhotoEditer.xcodeproj */,
 				04AFC8FAC1044131B875CAD7 /* RNImagePicker.xcodeproj */,
+				8B68A2F0116B4C9A88BF25BF /* RNChat.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -825,6 +846,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 2FAAB7C322D88CF100B57379 /* Products */;
+					ProjectRef = 8B68A2F0116B4C9A88BF25BF /* RNChat.xcodeproj */;
+				},
+				{
 					ProductGroup = 2F0BB06D22D8548F00CA8F1F /* Products */;
 					ProjectRef = 04AFC8FAC1044131B875CAD7 /* RNImagePicker.xcodeproj */;
 				},
@@ -1003,6 +1028,13 @@
 			fileType = archive.ar;
 			path = "libjsiexecutor-tvOS.a";
 			remoteRef = 2F5C873822CE3B3000FD1850 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2FAAB7EC22D88CF100B57379 /* libRNChat.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNChat.a;
+			remoteRef = 2FAAB7EB22D88CF100B57379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1259,12 +1291,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = TestMessageUINewTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1285,12 +1319,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = TestMessageUINewTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1313,6 +1349,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = TestMessageUINew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1337,6 +1374,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = TestMessageUINew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1367,11 +1405,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = "TestMessageUINew-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1401,11 +1441,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = "TestMessageUINew-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1434,11 +1476,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = "TestMessageUINew-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1467,11 +1511,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/rn-lm-photoediter/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/rn-lm-chat/ios/Class/**",
 				);
 				INFOPLIST_FILE = "TestMessageUINew-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

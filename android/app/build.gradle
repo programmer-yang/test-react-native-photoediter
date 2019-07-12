@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':rn-lm-chat')
     implementation project(':react-native-image-picker')
     implementation project(':rn-lm-photoediter')
     implementation fileTree(dir: "libs", include: ["*.jar"])

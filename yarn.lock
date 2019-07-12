@@ -5248,10 +5248,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-lm-chat@0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/rn-lm-chat/-/rn-lm-chat-0.0.20.tgz#a1662d0be02e21c7b865b9a0a37ab12946b0c575"
-  integrity sha512-m+P5K8ImCTze3UIVDdZvyo++uIvbGY7s+JX7x6QyWI6GM3LT+PpR8huK+yNwWryMUzh1HkjJkfwrpcfGhOS+yA==
+rn-lm-chat@0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/rn-lm-chat/-/rn-lm-chat-0.0.22.tgz#7965061cb828f47647d4e9a1cdebd6ddac837bf5"
+  integrity sha512-BSxdNzMVQeXiaIomHb5AYyP+gMyPGsPuQKN7XwOeW1ygGmuHY1sLwVF+JBawV7yA6C5P4goPWYss8yxMvJh6jA==
 
 rn-lm-photoediter@0.0.19:
   version "0.0.19"

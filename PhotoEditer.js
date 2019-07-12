@@ -35,7 +35,7 @@ class Photo extends Component {
         const { fileName: name, type, uri } = response;
 
         console.log("======");
-        console.log(uri);
+        console.log({ uri });
         console.log("======");
 
         // ClientModule.sendPicture(uri, localUrl => {
@@ -48,7 +48,6 @@ class Photo extends Component {
 
   render() {
     const { visible, uri } = this.state;
-    console.log(visible, uri);
     return (
       <View style={{ flex: 1, width: "100%", alignItems: "center" }}>
         <View
@@ -71,7 +70,6 @@ class Photo extends Component {
           >
             <PhotoEditer
               style={{ width: "100%", flex: 1 }}
-              // source="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1561380079906&di=368d275b2ad6dfea75d35034b3c44aa8&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201603%2F06%2F20160306224210_TRBaQ.jpeg"
               source={uri}
               marks={[
                 PhotoEditer.toUrl("images/mark1.png"),
@@ -98,7 +96,7 @@ class Photo extends Component {
             />
           </View>
         </Modal>
-        <View style={{ width: "100%", height: 300 }}>
+        {/* <View style={{ width: "100%", height: 300 }}>
           {uri ? (
             <Image
               key={uriHash}
@@ -108,7 +106,7 @@ class Photo extends Component {
               }}
             />
           ) : null}
-        </View>
+        </View> */}
       </View>
     );
   }
