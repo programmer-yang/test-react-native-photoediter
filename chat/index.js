@@ -9,7 +9,9 @@ import {
   Keyboard
 } from "react-native";
 // import { AuroraIMUI } from "aurora-imui";
-import { AuroraIMUI } from "./components/aurora-imui";
+import { AuroraIMUI, Message, Event } from "./components/aurora-imui";
+
+import MessageTextContent from "./components/aurora-imui/MessageTextContent";
 
 // import LMChat from "rn-lm-chat";
 
@@ -21,7 +23,6 @@ import faceicon from "../assets/images/faceicon.png";
 import keyboardicon from "../assets/images/keyboard.png";
 import plusicon from "../assets/images/plusicon.png";
 import photoicon from "../assets/images/photoicon.png";
-import phoneicon from "../assets/images/phoneicon.png";
 
 const { width: screenWidth, height } = Dimensions.get("window");
 const screenHeight = height - 90;
@@ -74,14 +75,14 @@ class Index extends Component {
     const { clickSendMessage } = this.props;
     if (typeof clickSendMessage === "function") {
       clickSendMessage(text);
+      this.refIMUI.current.appendMessages([
+        {
+          text,
+          msgType: "text",
+          msgId: `${Date.now()}`
+        }
+      ]);
     }
-    // this.refIMUI.current.appendMessages([
-    //   {
-    //     text,
-    //     msgType: "text",
-    //     msgId: `${Date.now()}`
-    //   }
-    // ]);
   };
 
   localOnSend = () => {
@@ -153,6 +154,46 @@ class Index extends Component {
     });
   };
 
+  customRowRender = message => {
+    // const message = { ...data.values };
+    console.log("=====");
+    console.log(message);
+    const { msgType: type } = message;
+    console.log(type);
+    switch (type) {
+      // case "event":
+      //   return <Event {...message} />;
+      // case "text":
+      //   return (
+      //     <Message
+      //       // {...message}
+      //       {...{
+      //         ...message,
+      //         messageContent: message => {
+      //           return <MessageTextContent {...{ ...message, text: "123" }} />;
+      //         }
+      //       }}
+      //       // {...{
+      //       //   ...message,
+      //       //   messageContent: message => {
+      //       //     return <MessageTextContent {...message} />;
+      //       //   }
+      //       // }}
+      //       // onMsgClick={this.props.onMsgClick}
+      //       // onAvatarClick={this.props.onAvatarClick}
+      //       // onStatusViewClick={this.props.onStatusViewClick}
+      //       // onMsgContentClick={this.props.onMsgContentClick}
+      //       // onMsgContentLongClick={this.props.onMsgContentLongClick}
+      //       // avatarContent={this.props.avatarContent}
+      //       // stateContainerStyles={this.props.stateContainerStyles}
+      //       // avatarContainerStyles={this.props.avatarContainerStyles}
+      //     />
+      //   );
+      default:
+        return null;
+    }
+  };
+
   render() {
     const {
       keyboardHeight,
@@ -166,6 +207,7 @@ class Index extends Component {
     } else {
       imuiHeight = imuiHeight - DeviceBottomMargin - moreHeight;
     }
+
     return (
       <View style={{ flex: 1, widht: "100%" }}>
         <AuroraIMUI
@@ -203,6 +245,7 @@ class Index extends Component {
               borderColor: "rgba(233, 233, 233, .5)"
             }
           }}
+          // renderRow={this.customRowRender}
           renderLeft={() => (
             <View
               style={{

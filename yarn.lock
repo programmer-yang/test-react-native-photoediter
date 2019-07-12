@@ -4889,6 +4889,11 @@ react-native-emoji-selector@^0.1.7:
     prop-types "^15.7.2"
     string.fromcodepoint "^0.2.1"
 
+react-native-image-picker@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-1.0.1.tgz#8d5f1865f26da603a72787936ed687c11d1bfdd0"
+  integrity sha512-cCxMTKZtUEaL4qXNBmPLG37rPBk3e4Uq4IHOt4Cm6gZQJilYZgFZtstQ8IhLOdLQgeQC7kT0liwzn8pSbO1nBA==
+
 react-native-keyboard-spacer@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.4.1.tgz#46f18a320432098a25ea9fa89f5143dd254d332d"
@@ -5243,15 +5248,15 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-lm-chat@0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/rn-lm-chat/-/rn-lm-chat-0.0.16.tgz#fb951dbf101b68260dea50ef009581db4999e6ec"
-  integrity sha512-0c7mMxcWqCmXgomGOeWqWSXipRu2r7No2XLNRC05U9P+AWd20PJ4KxgK+1nn0ofIHdKCyvKpgNqqqyNPnSD5hA==
+rn-lm-chat@0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/rn-lm-chat/-/rn-lm-chat-0.0.20.tgz#a1662d0be02e21c7b865b9a0a37ab12946b0c575"
+  integrity sha512-m+P5K8ImCTze3UIVDdZvyo++uIvbGY7s+JX7x6QyWI6GM3LT+PpR8huK+yNwWryMUzh1HkjJkfwrpcfGhOS+yA==
 
-rn-lm-photoediter@0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.14.tgz#94da9cc263e45d62b4979f83817673b33b86530b"
-  integrity sha512-ob9ClEepoF70K3HgMHT0p8jglZ1RuDjALCvbbl56c311pQ2bp8IoJxYvjLWIYdoHC6w+Im4NBCnrSNpCUxGU+g==
+rn-lm-photoediter@0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/rn-lm-photoediter/-/rn-lm-photoediter-0.0.19.tgz#1addda203bd62d66c58bc4c6c7acbf0e2bde2d1a"
+  integrity sha512-/ll04a73EO2AFO0BrMs6+F0HZJs/fVH6QkdUN23gvTUMG079NKb0R9vRws09cjA1j9cXrz+4a89r9ewUTLGTaA==
 
 rsvp@^3.3.3:
   version "3.6.2"
