@@ -8,4 +8,4 @@ import App from "./App";
 import PhotoEditer from "./PhotoEditer";
 import { name as appName } from "./app.json";
 
-AppRegistry.registerComponent(appName, () => PhotoEditer);
+AppRegistry.registerComponent(appName, () => App);

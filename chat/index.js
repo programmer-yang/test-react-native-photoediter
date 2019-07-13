@@ -6,12 +6,16 @@ import {
   Text,
   Image,
   // NativeModules,
-  Keyboard
+  Keyboard,
+  DeviceEventEmitter
 } from "react-native";
+import ImagePicker from "react-native-image-picker";
 // import { AuroraIMUI } from "aurora-imui";
+import { LmChat } from "rn-lm-chat";
 import { AuroraIMUI, Message, Event } from "./components/aurora-imui";
 
 import MessageTextContent from "./components/aurora-imui/MessageTextContent";
+import Avatar from "./components/avatar";
 
 // import LMChat from "rn-lm-chat";
 
@@ -23,6 +27,9 @@ import faceicon from "../assets/images/faceicon.png";
 import keyboardicon from "../assets/images/keyboard.png";
 import plusicon from "../assets/images/plusicon.png";
 import photoicon from "../assets/images/photoicon.png";
+import voicepng from "../assets/images/voice.png";
+
+import masterAvator from "./components/aurora-imui/assert/avator2.png";
 
 const { width: screenWidth, height } = Dimensions.get("window");
 const screenHeight = height - 90;
@@ -38,14 +45,37 @@ class Index extends Component {
       keyboardHeight: 0, // 键盘高度
       moreHeight: 0, // emoji容器高度
       actionIconSmileOrKeyboard: true,
-      actionIconMore: false // 更多
+      actionIconMore: false, // 更多
+      lastMessageId: undefined
     };
 
     // console.log("c", chat);
     // chat.hx_initializeSDKWithOptions("ssss", "ssss", "ssss", msg => {});
+
+    console.log(LmChat);
+    // 初始化登陆
+    LmChat.initChatRN("yang", "kefuchannelimid_300108", msg => {
+      console.log("登录成功 ", msg);
+    });
+
+    // 监听消息;
+    DeviceEventEmitter.addListener("onReceiveMsg", msg => {
+      console.log("监听到了消息: ", msg);
+    });
   }
 
   componentDidMount() {
+    // this.refIMUI.current.removeAllMessage();
+    // LmChat.getHistory(null, historyMessages => {
+    //   console.log("首次获取历史记录");
+    //   // console.log(historyMessages);
+    //   // this.setState({ historyMessages });
+
+    //   this.refIMUI.current.insertMessagesToTop(
+    //     historyMessages.map(this.trimMessageFormat)
+    //   );
+    // });
+
     this.keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
       this.localKeyboardDidShow
@@ -57,9 +87,61 @@ class Index extends Component {
   }
 
   componentWillUnmount() {
+    DeviceEventEmitter.removeListener("onReceiveMsg");
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
+
+  _onPullToRefresh = () => {
+    // this.refIMUI.current.removeAllMessage();
+    const { lastMessageId } = this.state;
+    console.log(lastMessageId);
+    LmChat.getHistory(lastMessageId || null, historyMessages => {
+      console.log("获取历史记录");
+      console.log(historyMessages);
+      // this.setState({ historyMessages });
+      this.setState({
+        lastMessageId: historyMessages[0].msgId
+      });
+
+      this.refIMUI.current.insertMessagesToTop(
+        historyMessages.map(this.trimMessageFormat)
+      );
+    });
+  };
+
+  trimMessageFormat = message => {
+    const { currentUser } = this.props;
+    switch (message.type) {
+      case "txt": {
+        return {
+          ...message,
+          msgType: "text",
+          isOutgoing: message.from === currentUser,
+          text: message.content
+        };
+      }
+      case "img": {
+        return {
+          ...message,
+          msgType: "img",
+          isOutgoing: message.from === currentUser,
+          text: `file://${message.localUrl}.jpg`
+        };
+      }
+      case "voice": {
+        return {
+          ...message,
+          msgType: "voice",
+          isOutgoing: message.from === currentUser,
+          text: message.localUrl
+        };
+      }
+      default: {
+        return false;
+      }
+    }
+  };
 
   localKeyboardDidShow = e => {
     this.setState({ keyboardHeight: e.endCoordinates.height });
@@ -72,17 +154,27 @@ class Index extends Component {
     // clickSendMessage={this.localSendMessage}
     //       clickSendPhoto={this.localSendPhoto}
     //       clickSendVoice={this.localSendVoice}
-    const { clickSendMessage } = this.props;
-    if (typeof clickSendMessage === "function") {
-      clickSendMessage(text);
+    // const { clickSendMessage } = this.props;
+    // if (typeof clickSendMessage === "function") {
+    //   clickSendMessage(text);
+    //   this.refIMUI.current.appendMessages([
+    //     {
+    //       text,
+    //       msgType: "text",
+    //       msgId: `${Date.now()}`
+    //     }
+    //   ]);
+    // }
+    LmChat.sendText(text, msg => {
       this.refIMUI.current.appendMessages([
         {
           text,
           msgType: "text",
-          msgId: `${Date.now()}`
+          msgId: `${Date.now()}`,
+          isOutgoing: true
         }
       ]);
-    }
+    });
   };
 
   localOnSend = () => {
@@ -96,27 +188,73 @@ class Index extends Component {
   };
 
   localOnPressIn = () => {
-    const { clickSendVoiceBegin } = this.props;
-    if (typeof clickSendVoiceBegin === "function") {
-      clickSendVoiceBegin();
-    }
+    LmChat.voiceRecordingBegin(msg => {
+      console.log(msg);
+    });
     // chat.startRecordingVoiceCallback(msg => {});
   };
   localOnPressOut = () => {
     // chat.finishRecordingVoiceCallback(file => {
     //   console.log(file);
     // });
-    const { clickSendVoiceEnd } = this.props;
-    if (typeof clickSendVoiceEnd === "function") {
-      clickSendVoiceEnd();
-    }
+    // LmChat.voiceRecordingEnd((isError, path) => {
+    //   console.log(path);
+    // });
+    // 录音结束
+    LmChat.voiceRecordingEnd((voicePath, times) => {
+      console.log(voicePath, times);
+      // 发送语音
+      LmChat.sendVoice(voicePath, times);
+
+      this.refIMUI.current.appendMessages([
+        {
+          text: voicePath,
+          msgType: "voice",
+          msgId: `${Date.now()}`,
+          isOutgoing: true
+        }
+      ]);
+    });
   };
 
+  // 发送图片
   localOnPressPhoto = () => {
-    const { clickSendPhoto } = this.props;
-    if (typeof clickSendPhoto === "function") {
-      clickSendPhoto();
-    }
+    // const { clickSendPhoto } = this.props;
+    // if (typeof clickSendPhoto === "function") {
+    //   clickSendPhoto();
+    // }
+
+    const options = {
+      title: "请选择",
+      cancelButtonTitle: "取消",
+      takePhotoButtonTitle: "拍照",
+      chooseFromLibraryButtonTitle: "从相册中选择",
+      storageOptions: {
+        skipBackup: true,
+        path: "images"
+      }
+    };
+
+    ImagePicker.showImagePicker(options, response => {
+      if (response.didCancel) {
+        // console.log("User cancelled image picker");
+      } else if (response.error) {
+        // console.log("ImagePicker Error: ", response.error);
+      } else {
+        const { uri } = response;
+
+        LmChat.sendPicture(uri, localUrl => {
+          this.refIMUI.current.appendMessages([
+            {
+              text: localUrl,
+              msgType: "img",
+              msgId: `${Date.now()}`,
+              isOutgoing: true
+            }
+          ]);
+        });
+      }
+    });
   };
 
   localOnClickSmileOrKeyboard = () => {
@@ -154,44 +292,101 @@ class Index extends Component {
     });
   };
 
+  localPlayVoice = path => {
+    LmChat.playVoice(path);
+  };
+
   customRowRender = message => {
+    const { avatarPath } = this.props;
     // const message = { ...data.values };
-    console.log("=====");
-    console.log(message);
     const { msgType: type } = message;
-    console.log(type);
     switch (type) {
-      // case "event":
-      //   return <Event {...message} />;
-      // case "text":
-      //   return (
-      //     <Message
-      //       // {...message}
-      //       {...{
-      //         ...message,
-      //         messageContent: message => {
-      //           return <MessageTextContent {...{ ...message, text: "123" }} />;
-      //         }
-      //       }}
-      //       // {...{
-      //       //   ...message,
-      //       //   messageContent: message => {
-      //       //     return <MessageTextContent {...message} />;
-      //       //   }
-      //       // }}
-      //       // onMsgClick={this.props.onMsgClick}
-      //       // onAvatarClick={this.props.onAvatarClick}
-      //       // onStatusViewClick={this.props.onStatusViewClick}
-      //       // onMsgContentClick={this.props.onMsgContentClick}
-      //       // onMsgContentLongClick={this.props.onMsgContentLongClick}
-      //       // avatarContent={this.props.avatarContent}
-      //       // stateContainerStyles={this.props.stateContainerStyles}
-      //       // avatarContainerStyles={this.props.avatarContainerStyles}
-      //     />
-      //   );
+      case "img":
+        return (
+          <Message
+            {...message}
+            {...{
+              ...message,
+              messageContent: message => {
+                return (
+                  <Image
+                    style={{ width: 120, height: 120 }}
+                    source={{
+                      uri: message.remoteUrl ? message.remoteUrl : message.text
+                    }}
+                  />
+                );
+              }
+            }}
+            // onMsgClick={this.props.onMsgClick}
+            // onAvatarClick={this.props.onAvatarClick}
+            // onStatusViewClick={this.props.onStatusViewClick}
+            // onMsgContentClick={this.props.onMsgContentClick}
+            // onMsgContentLongClick={this.props.onMsgContentLongClick}
+            // avatarContent={this.props.avatarContent}
+            avatarContent={avatarProps =>
+              this.renderAvatar(avatarProps.isOutgoing)
+            }
+            // stateContainerStyles={this.props.stateContainerStyles}
+            // avatarContainerStyles={this.props.avatarContainerStyles}
+          />
+        );
+      case "voice":
+        return (
+          <Message
+            {...message}
+            {...{
+              ...message,
+              messageContent: message => {
+                return (
+                  <TouchableOpacity
+                    style={{
+                      width: 60,
+                      height: 40,
+                      backgroundColor: "rgb(60, 121, 242)",
+                      justifyContent: "center",
+                      // alignItems: message.isOutgoing
+                      //   ? "flex-end"
+                      //   : "flex-start",
+                      paddingLeft: 10,
+                      transform: [
+                        { rotate: message.isOutgoing ? "180deg" : "0deg" }
+                      ]
+                    }}
+                    onPress={this.localPlayVoice.bind(this, message.text)}
+                  >
+                    <Image
+                      style={{
+                        width: 20,
+                        height: 20
+                      }}
+                      source={voicepng}
+                    />
+                  </TouchableOpacity>
+                );
+              }
+            }}
+            // onMsgClick={this.props.onMsgClick}
+            // onAvatarClick={this.props.onAvatarClick}
+            // onStatusViewClick={this.props.onStatusViewClick}
+            // onMsgContentClick={this.props.onMsgContentClick}
+            // onMsgContentLongClick={this.props.onMsgContentLongClick}
+            // avatarContent={this.props.avatarContent}
+            avatarContent={avatarProps =>
+              this.renderAvatar(avatarProps.isOutgoing)
+            }
+            // stateContainerStyles={this.props.stateContainerStyles}
+            // avatarContainerStyles={this.props.avatarContainerStyles}
+          />
+        );
       default:
         return null;
     }
+  };
+
+  renderAvatar = (type = true) => {
+    const { avatarPath } = this.props;
+    return type ? <Avatar path={avatarPath} /> : <Avatar path={masterAvator} />;
   };
 
   render() {
@@ -199,8 +394,10 @@ class Index extends Component {
       keyboardHeight,
       actionIconSmileOrKeyboard,
       moreHeight,
-      actionIconMore
+      actionIconMore,
+      historyMessages
     } = this.state;
+
     let imuiHeight = screenHeight;
     if (keyboardHeight) {
       imuiHeight = imuiHeight - keyboardHeight;
@@ -217,10 +414,17 @@ class Index extends Component {
             height: imuiHeight,
             marginTop: 33
           }}
-          initialMessages={[
-            { msgId: "0", msgType: "event", text: "Text message 1" },
-            { msgId: "1", msgType: "text", text: "Text message 2" }
-          ]}
+          initialMessages={
+            [
+              // {
+              //   text:
+              //     "...",
+              //   msgType: "img",
+              //   msgId: `${Date.now()}`
+              //   // isOutgoing: true
+              // }
+            ]
+          }
           // onInputTextChanged={this.localInputFocus}
           onSendText={this.localOnSendText}
           maxInputViewHeight={screenHeight}
@@ -245,7 +449,11 @@ class Index extends Component {
               borderColor: "rgba(233, 233, 233, .5)"
             }
           }}
-          // renderRow={this.customRowRender}
+          onPullToRefresh={this._onPullToRefresh}
+          avatarContent={avatarProps =>
+            this.renderAvatar(avatarProps.isOutgoing)
+          }
+          renderRow={this.customRowRender}
           renderLeft={() => (
             <View
               style={{

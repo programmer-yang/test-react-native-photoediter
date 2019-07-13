@@ -10,6 +10,8 @@ import { WebIm } from "rn-lm-chat";
 import ImagePicker from "react-native-image-picker";
 import Message from "./chat";
 
+import avator1 from "./assets/images/avator1.png";
+
 const ClientModule = NativeModules.RNClientModule;
 
 // const { width: screenWidth, height } = Dimensions.get("window");
@@ -21,7 +23,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    console.log(ClientModule);
+    // this.refMessage = React.createRef();
+
+    // console.log(ClientModule);
     // WebIm.getHistory(null, msgs => {
     //   console.log(msgs);
     // });
@@ -34,9 +38,9 @@ class App extends Component {
     ClientModule.initChatRN("yang", "kefuchannelimid_300108", msg => {
       console.log(msg);
 
-      ClientModule.getHistory("38c762b8ee6948cab80e0c2663b9f40c", msg => {
-        console.log(msg);
-      });
+      // ClientModule.getHistory("38c762b8ee6948cab80e0c2663b9f40c", msg => {
+      //   console.log(msg);
+      // });
     });
   }
 
@@ -48,13 +52,8 @@ class App extends Component {
     });
   };
   localClickSendPhoto = () => {
-    // console.log("clickPhoto");
-    // // WebIm.selectPicFromLocal(url => {
-    // //   console.log(url);
-    // // });
-    // ClientModule.sendPicture("", url => {
-    //   console.log(url);
-    // });
+    // const refIMUI = this.refMessage.current.refIMUI;
+
     const options = {
       title: "请选择",
       cancelButtonTitle: "取消",
@@ -65,6 +64,10 @@ class App extends Component {
         path: "images"
       }
     };
+
+    console.log("=====|====");
+    console.log(options);
+    console.log("=====|====");
 
     ImagePicker.showImagePicker(options, response => {
       if (response.didCancel) {
@@ -80,6 +83,12 @@ class App extends Component {
 
         ClientModule.sendPicture(uri, localUrl => {
           console.log("local img url:", localUrl);
+
+          // refIMUI.current.appendMessages({
+          //   localUrl,
+          //   msgType: "img",
+          //   msgId: `${Date.now()}`
+          // });
         });
       }
     });
@@ -100,10 +109,13 @@ class App extends Component {
     return (
       <View style={{ width: "100%", flex: 1 }}>
         <Message
-          clickSendMessage={this.localClickSendMessage}
-          clickSendPhoto={this.localClickSendPhoto}
-          clickSendVoiceBegin={this.localClickSendVoiceBegin}
-          clickSendVoiceEnd={this.localClickSendVoiceEnd}
+          avatarPath={avator1}
+          currentUser="yang"
+          // ref={this.refMessage}
+          // clickSendMessage={this.localClickSendMessage}
+          // clickSendPhoto={this.localClickSendPhoto}
+          // clickSendVoiceBegin={this.localClickSendVoiceBegin}
+          // clickSendVoiceEnd={this.localClickSendVoiceEnd}
         />
       </View>
     );
