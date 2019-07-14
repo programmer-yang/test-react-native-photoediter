@@ -16,7 +16,7 @@
     "react-native-image-picker": "^1.0.1",
     "react-native-keyboard-spacer": "^0.4.1",
     "recyclerlistview": "^1.3.4",
-    "rn-lm-chat": "0.0.22",
+    "rn-lm-chat": "0.0.24",
     "rn-lm-photoediter": "0.0.19"
   },
   "devDependencies": {

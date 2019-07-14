@@ -5,13 +5,14 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  // NativeModules,
+  NativeModules,
+  NativeEventEmitter,
   Keyboard,
   DeviceEventEmitter
 } from "react-native";
 import ImagePicker from "react-native-image-picker";
 // import { AuroraIMUI } from "aurora-imui";
-import { LmChat } from "rn-lm-chat";
+import { LmChat, RNEventPost } from "rn-lm-chat";
 import { AuroraIMUI, Message, Event } from "./components/aurora-imui";
 
 import MessageTextContent from "./components/aurora-imui/MessageTextContent";
@@ -54,28 +55,15 @@ class Index extends Component {
 
     console.log(LmChat);
     // 初始化登陆
-    LmChat.initChatRN("yang", "kefuchannelimid_300108", msg => {
+    LmChat.initChatRN("test002", "kefuchannelimid_300108", msg => {
       console.log("登录成功 ", msg);
-    });
 
-    // 监听消息;
-    DeviceEventEmitter.addListener("onReceiveMsg", msg => {
-      console.log("监听到了消息: ", msg);
+      // 启动监听
+      LmChat.addListener(this._onHandleResponseMessage);
     });
   }
 
   componentDidMount() {
-    // this.refIMUI.current.removeAllMessage();
-    // LmChat.getHistory(null, historyMessages => {
-    //   console.log("首次获取历史记录");
-    //   // console.log(historyMessages);
-    //   // this.setState({ historyMessages });
-
-    //   this.refIMUI.current.insertMessagesToTop(
-    //     historyMessages.map(this.trimMessageFormat)
-    //   );
-    // });
-
     this.keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
       this.localKeyboardDidShow
@@ -87,10 +75,17 @@ class Index extends Component {
   }
 
   componentWillUnmount() {
-    DeviceEventEmitter.removeListener("onReceiveMsg");
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
+    LmChat.removeListener(this._onHandleResponseMessage);
   }
+
+  _onHandleResponseMessage = ({ type, msgs }) => {
+    if (type === "normal") {
+      const message = this.trimMessageFormat(msgs[0]);
+      this.refIMUI.current.appendMessages([message]);
+    }
+  };
 
   _onPullToRefresh = () => {
     // this.refIMUI.current.removeAllMessage();
@@ -414,17 +409,15 @@ class Index extends Component {
             height: imuiHeight,
             marginTop: 33
           }}
-          initialMessages={
-            [
-              // {
-              //   text:
-              //     "...",
-              //   msgType: "img",
-              //   msgId: `${Date.now()}`
-              //   // isOutgoing: true
-              // }
-            ]
-          }
+          initialMessages={[
+            {
+              text:
+                "老板你好，这里是LOVEMAKER全球私人订制约会平台。我是您的专属约会管家Johnny，很高兴为您服务。",
+              msgType: "text",
+              msgId: `${Date.now()}`
+              // isOutgoing: true
+            }
+          ]}
           // onInputTextChanged={this.localInputFocus}
           onSendText={this.localOnSendText}
           maxInputViewHeight={screenHeight}
