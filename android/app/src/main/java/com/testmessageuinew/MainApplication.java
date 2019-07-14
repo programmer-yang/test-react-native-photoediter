@@ -3,6 +3,7 @@ package com.testmessageuinew;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.iwhalecloud.picedit.RNPicEditPackage;
 import com.iwhalecloud.kefuim.RNKefuimPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNPicEditPackage(),
             new RNKefuimPackage(),
             new ImagePickerPackage()
       );
