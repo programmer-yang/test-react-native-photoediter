@@ -1,8 +1,4 @@
 rootProject.name = 'TestMessageUINew'
-include ':rn-lm-photoediter'
-project(':rn-lm-photoediter').projectDir = new File(rootProject.projectDir, '../node_modules/rn-lm-photoediter/android')
-include ':rn-lm-chat'
-project(':rn-lm-chat').projectDir = new File(rootProject.projectDir, '../node_modules/rn-lm-chat/android')
 include ':react-native-image-picker'
 project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
 

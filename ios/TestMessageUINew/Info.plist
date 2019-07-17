@@ -64,7 +64,7 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$（PRODUCT_NAME）希望将照片保存到您的照片库</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$（PRODUCT_NAME）想要使用麦克风</string>
+	<string>$（PRODUCT_NAME）想要使用麦克风（用于视频）</string>
 	
 </dict>
 </plist>
